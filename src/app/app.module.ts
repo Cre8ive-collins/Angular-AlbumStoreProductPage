@@ -11,9 +11,9 @@ import { ProductService } from './product.service';
 import { ProductTracklistingComponent } from './product-tracklisting/product-tracklisting.component';
 import { ProductListComponent } from './product-list/product-list.component';
 
-const appRoutes : Routes[] = [
-  { path : 'products' , component : 'ProductListComponent' },
-  { path: 'product/:id', component: "ProductPageComponent" },
+const appRoutes : Routes = [
+  { path : 'products' , component : ProductListComponent },
+  { path: 'product/:id', component: ProductPageComponent },
   { path: '', redirectTo: 'products', pathMatch:'full' }
 ]
 @NgModule({
@@ -22,13 +22,13 @@ const appRoutes : Routes[] = [
     ProductPageComponent,
     ProductDescriptionComponent,
     ProductTracklistingComponent,
-    ProductListComponent,
-    RouterModule.forRoot(appRoutes)
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
